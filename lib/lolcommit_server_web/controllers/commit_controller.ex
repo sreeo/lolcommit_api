@@ -1,6 +1,6 @@
 defmodule LolcommitServerWeb.CommitController do
   use LolcommitServerWeb, :controller
-  alias Commit
+  alias LolcommitServer.Commit
   alias Repo
 
   def index(conn,_params) do
@@ -19,10 +19,13 @@ defmodule LolcommitServerWeb.CommitController do
     json conn,commits
   end
 
-  def uploadCommit(conn,%{"file" => file, "message" => message, "repo" => repo, "author_email" => author_email,"author_name" => author_name}) do
+  def uploadCommit(conn,%{"file" => file,"sha" => sha, "message" => message, "repo" => repo, "author_email" => author_email,"author_name" => author_name}) do
     # IO.inspect image_params
+
+    fileName =  sha <> ".gif"
+    IO.inspect fileName
+    changeset = Commit.changeset(%Commit{}, %{author_email: :author_email, author_name: :author_name})
     ImageUploader.store(file)
-    json conn,[message]
+    json conn,[changeset]
   end
 end
- 
