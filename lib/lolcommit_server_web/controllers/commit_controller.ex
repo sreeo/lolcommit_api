@@ -6,7 +6,7 @@ defmodule LolcommitServerWeb.CommitController do
         email: "joe@example.com",
         password: "topsecret",
         stooge: "moe"},
-      %{name: "Anne",
+      %{name: "Anne", 
         email: "anne@example.com",
         password: "guessme",
         stooge: "larry"},
