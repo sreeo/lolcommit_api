@@ -71,7 +71,7 @@ config :arc,
   virtual_host: true
 
 config :ex_aws,
-  access_key_id: "AKIAIO7V2FZCGJWK2HXA",
+  access_key_id: "AKIAIO7V2FZCGJWK2HXA", 
   secret_access_key: "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",
   region: "ap-south-1",
  host: "s3.ap-south-1.amazonaws.com",
