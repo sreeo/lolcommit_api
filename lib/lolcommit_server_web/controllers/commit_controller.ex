@@ -24,4 +24,4 @@ defmodule LolcommitServerWeb.CommitController do
     ImageUploader.store(file)
     json conn,[file]
   end
-end
+end 
