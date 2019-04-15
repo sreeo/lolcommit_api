@@ -1,7 +1,6 @@
 
 defmodule LolcommitServerWeb.CommitController do
 
-  @derive Jason.Encoder
   use LolcommitServerWeb, :controller
   alias LolcommitServer.Commit
   alias Repo
@@ -27,8 +26,9 @@ defmodule LolcommitServerWeb.CommitController do
 
     fileName =  sha <> ".gif"
     IO.inspect fileName
-    changeset = Commit.changeset(%Commit{}, %{file: :fileName,sha: :sha,message: :message,repo: :repo,author_email: :author_email, author_name: :author_name})
+    # changeset = Commit.changeset(%Commit{}, %{file: :fileName,sha: :sha,message: :message,repo: :repo,author_email: :author_email, author_name: :author_name})
+    Repo.insert(%Commit{file: fileName, message: message,repo: repo,author_email: author_email, author_name: author_name})
     ImageUploader.store(file)
-    json conn,[changeset]
+    json conn,[fileName]
   end
 end
