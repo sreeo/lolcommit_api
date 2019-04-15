@@ -24,10 +24,10 @@ defmodule ImageUploader do
   # end
 
   # Override the persisted filenames:
-  def filename(version, _) do
-    IO.inspect version
-    version
-  end
+  # def filename(version, _) do
+  #   IO.inspect version
+  #   version
+  # end
 
   # Override the storage directory:
   # def storage_dir(version, {file, scope}) do
