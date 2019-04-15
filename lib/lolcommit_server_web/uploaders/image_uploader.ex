@@ -25,7 +25,7 @@ defmodule ImageUploader do
 
   # Override the persisted filenames:
   # def filename(version, _) do
-  #   IO.inspect version
+  #   IO.inspect version 
   #   version
   # end
 
