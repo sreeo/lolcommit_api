@@ -21,6 +21,11 @@ defmodule LolcommitServerWeb.CommitController do
     json conn,commits
   end
 
+  def getCommits(conn,_params) do
+    res = Repo.all(Commit)
+    json conn,res
+  end
+
   def uploadCommit(conn,%{"file" => file,"sha" => sha, "message" => message, "repo" => repo, "author_email" => author_email,"author_name" => author_name}) do
     # IO.inspect image_params
 
@@ -28,7 +33,8 @@ defmodule LolcommitServerWeb.CommitController do
     IO.inspect fileName
     # changeset = Commit.changeset(%Commit{}, %{file: :fileName,sha: :sha,message: :message,repo: :repo,author_email: :author_email, author_name: :author_name})
     Repo.insert(%Commit{file: fileName, message: message,repo: repo,author_email: author_email, author_name: author_name})
-    ImageUploader.store(file)
+    fileResponse = ImageUploader.store(file)
+    IO.inspect fileResponse
     json conn,[fileName]
   end
 end

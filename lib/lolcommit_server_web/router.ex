@@ -18,6 +18,8 @@ defmodule LolcommitServerWeb.Router do
     pipe_through :api
 
     post "/commit", CommitController, :uploadCommit
+
+    get "/commit", CommitController, :getCommits
   end
   # Other scopes may use custom stacks.
   # scope "/api", LolcommitServerWeb do
