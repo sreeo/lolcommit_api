@@ -1,3 +1,4 @@
+
 defmodule LolcommitServerWeb.CommitController do
   use LolcommitServerWeb, :controller
   alias LolcommitServer.Commit
