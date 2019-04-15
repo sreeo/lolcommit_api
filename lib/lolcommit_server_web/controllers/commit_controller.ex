@@ -1,5 +1,7 @@
 
 defmodule LolcommitServerWeb.CommitController do
+
+  @derive Jason.Encoder
   use LolcommitServerWeb, :controller
   alias LolcommitServer.Commit
   alias Repo
