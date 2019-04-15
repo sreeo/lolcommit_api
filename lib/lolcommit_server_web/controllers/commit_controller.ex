@@ -22,6 +22,7 @@ defmodule LolcommitServerWeb.CommitController do
   def uploadCommit(conn,%{"file" => file, "message" => message, "repo" => repo, "author_email" => author_email,"author_name" => author_name}) do
     # IO.inspect image_params
     ImageUploader.store(file)
-    json conn,[file]
+    json conn,[message]
   end
-end 
+end
+ 
