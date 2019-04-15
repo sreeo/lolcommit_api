@@ -13,9 +13,9 @@ defmodule LolcommitServer.Commit do
   end
 
   @doc false
+
   def changeset(commit, attrs) do
     commit
     |> cast(attrs, [:message, :file, :author_name, :author_email, :repo])
-    |> validate_required([:message, :file, :author_name, :author_email, :repo])
   end
 end
