@@ -3,7 +3,7 @@ defmodule LolcommitServerWeb.CommitController do
 
   use LolcommitServerWeb, :controller
   alias LolcommitServer.Commit
-  alias Ecto.Repo
+  alias LolcommitServer.Repo
 
   def index(conn,_params) do
     commits = [ %{name: "Joe",
