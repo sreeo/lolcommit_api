@@ -34,7 +34,8 @@ defmodule LolcommitServerWeb.CommitController do
     # changeset = Commit.changeset(%Commit{}, %{file: :fileName,sha: :sha,message: :message,repo: :repo,author_email: :author_email, author_name: :author_name})
     Repo.insert(%Commit{file: fileName, message: message,repo: repo,author_email: author_email, author_name: author_name})
     fileResponse = ImageUploader.store(file)
-    IO.inspect fileResponse
+    fileUrl = ImageUploader.url(file)
+    IO.inspect fileUrl
     json conn,[fileName]
   end
 end
