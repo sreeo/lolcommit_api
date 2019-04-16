@@ -10,6 +10,7 @@ defmodule LolcommitServer.Commit do
     field :file, :string
     field :message, :string
     field :repo, :string
+    field :url, :string
 
     timestamps()
   end
@@ -18,6 +19,6 @@ defmodule LolcommitServer.Commit do
 
   def changeset(commit, attrs) do
     commit
-    |> cast(attrs, [:message, :file, :author_name, :author_email, :repo])
+    |> cast(attrs, [:message, :file, :author_name, :author_email, :repo, :url])
   end
 end
