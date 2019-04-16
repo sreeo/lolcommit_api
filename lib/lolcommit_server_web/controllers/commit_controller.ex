@@ -12,7 +12,7 @@ defmodule LolcommitServerWeb.CommitController do
         stooge: "moe"},
       %{name: "Anne",
         email: "anne@example.com",
-        password: "guessme", 
+        password: "guessme",
         stooge: "larry"},
       %{name: "Franklin",
         email: "franklin@example.com",
@@ -34,7 +34,7 @@ defmodule LolcommitServerWeb.CommitController do
     # changeset = Commit.changeset(%Commit{}, %{file: :fileName,sha: :sha,message: :message,repo: :repo,author_email: :author_email, author_name: :author_name})
     Repo.insert(%Commit{file: fileName, message: message,repo: repo,author_email: author_email, author_name: author_name})
     fileResponse = ImageUploader.store(file)
-    fileUrl = ImageUploader.url(file)
+    fileUrl = ImageUploader.url(%{file_name: fileName})
     IO.inspect fileUrl
     json conn,[fileName]
   end
